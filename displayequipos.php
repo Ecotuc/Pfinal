@@ -14,11 +14,11 @@
 <head>
 	<title>Equipos</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="estiloequipo.css">
+	<link rel="stylesheet" href="ee.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 
-<body>
+<body class="fondo">
 
 	<table>
 		<thead>
@@ -59,7 +59,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]

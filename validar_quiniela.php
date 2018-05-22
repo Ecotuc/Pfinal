@@ -16,10 +16,10 @@
 <head>
 	<title>Ingreso equipo</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="estiloequipo.css">
+	<link rel="stylesheet" href="ee.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
-<body>
+<body class="fondo">
 	<?php
 		$gole1=$_POST["golese1"];
 		$gole2=$_POST["golese2"];

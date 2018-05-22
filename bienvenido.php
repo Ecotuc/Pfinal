@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	error_reporting(0);
 
 	$varsesion = $_SESSION['usuario'];
 
@@ -10,14 +9,25 @@
 ?>
 
 <!DOCTYPE html>
-<html>
 <head>
-	<title>Bienvenido</title>
+	<title>Inicio</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="eb2.css">
+	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
-<body>
-	<h2>Bienvenido: <?php echo $_SESSION['usuario'] ?></h2>
-	<a href="equipo.php">Equipo</a>
-	<a href="partidoequipo.php">Partido</a>
-	<a href="cerrarsesion.php">Cerrar sesion</a>
+<body class="fondo">
+	<div class="xd">
+			<div id="header">
+				<ul class="nav">
+					<li><a href="bienvenido.php">Inicio</a></li>	
+					<li><a href="calendariopartidos.php">Calendario</a></li>
+					<li><a href="calendario.php">Mi Quiniela</a></li>
+					<li><a href="displayequipos.php">Equipos</a></li>
+					<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>	
+				</ul>
+			</div>
+	</div>
+				<h2>Bienvenido: <?php echo $_SESSION['usuario'] ?></h2>
+			
 </body>
 </html>

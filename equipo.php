@@ -14,10 +14,10 @@
 <head>
 	<title>Ingreso equipo</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="estiloequipo.css">
+	<link rel="stylesheet" href="ee.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
-<body>
+<body class="fondo">
 	<form action="validarequipo.php" method="post" class="form-register" enctype= "multipart/form-data">
 
 		<h2 class="form-titulo">Equipo</h2>
