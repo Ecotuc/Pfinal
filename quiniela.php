@@ -35,8 +35,8 @@
 
 			$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
     			or die('Could not connect: ' . pg_last_error());
-			
-			$query2 = "SELECT * FROM quiniela WHERE '$usuario'=usuario AND '$id'=idpartido";
+
+			$query2 = "SELECT * FROM quiniela WHERE $varsesion=usuario AND '$id'=idpartido";
 
 			$resultado2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
 
@@ -61,7 +61,7 @@
 
     		pg_free_result($result);
 			pg_close($dbconn);
-    			
+
 			?>
 	 	</div>
 	</form>

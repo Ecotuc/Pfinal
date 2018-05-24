@@ -37,7 +37,7 @@
 			$query1 = "SELECT * FROM partidos ORDER BY fecha";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -51,12 +51,17 @@
 						</th>
 						<th>
 							<br>
-							&nbsp;&nbsp;
-							<a href='quiniela.php'>Mi resultado</a>
-							<br><br>
+							&nbsp;&nbsp;";
+							if ($varsesion=='admin') {
+								echo"<a href='ir.php'>Ingresar resultado</a>";
+							}else{
+								echo"<a href='quiniela.php?usuario=$varsesion'>Mi resultado</a>";
+							}
+
+							echo"<br><br>
 						</th>
 					</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
