@@ -7,7 +7,13 @@
 	$varsesion = $_SESSION['usuario'];
 
 	if($varsesion == null || $varsesion == ''){
-		echo 'Debe iniciar sesion para ingresar';
+		echo "<body class='fondo'>";
+		echo "<h2 class='form-titulo'>Debe iniciar sesion para ingresar</h2>";
+			echo "<script>
+						setTimeout(function() {
+								location.href = 'index.php';
+						}, 2000);
+					</script>";
 	}
 ?>
 
@@ -23,8 +29,10 @@
 	<?php
 		$gole1=$_POST["golese1"];
 		$gole2=$_POST["golese2"];
-		$id=$_POST["grupo"];
+		$id=$_POST["id"];
 		$usuario=$_POST["usuario"];
+		$e1=$_POST["e1"];
+		$e2=$_POST["e2"];
 
 		$f1=0;
 		$f2=0;
@@ -37,49 +45,44 @@
 			if(!empty($gole2)){
 				$f2=1;
 			}
-
-			$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
+			if(($f1==1)&&($f2==1)){
+				$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
     			or die('Could not connect: ' . pg_last_error());
 
-			$query2 = "SELECT * FROM quiniela WHERE '$usuario'=usuario AND '$id'=idpartido";
+					$query1 = "SELECT * FROM quiniela WHERE idpartido='$id' AND usuario='$usuario'";
+					$result1 = pg_query($query1) or die('Query failed: ' . pg_last_error());
 
-			$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
+					$rows1 = pg_num_rows($result1);
 
-			$rows1 = pg_num_rows($result2);
+					if($rows1>0){
+						$query2 = "UPDATE quiniela SET gole1='$gole1', gole2='$gole2' WHERE idpartido='$id' AND usuario='$usuario'";
+						$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
+					} else {
+						$query2 = "INSERT INTO quiniela(usuario, idpartido, gole1, gole2, puntos) VALUES ('$usuario', '$id', '$gole1', '$gole2', 0)";
+						$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
+					}
 
-			if($rows1>0){
-				$query1 = "UPDATE partidas SET Fecha='$Fecha', 
-                                  Descripcion='$Descripcion'
-                            WHERE NumPartida=$NumPartida";
-
-			$result1 = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			} else {
-				$f7=1;
-			}
-			if($f1=1 && $f2=1 && $f3=1 && $f7=1){
-
-
-				$query = "INSERT INTO equipos VALUES ( '$nombre', '$escaped','$grupo', 0, 0, 0)";
-
-				$result = pg_query($query) or die('Query failed: ' . pg_last_error());
-
-				if($result){
+				if($result2){
 					pg_free_result($result);
 					pg_close($dbconn);
 					echo "<body class='fondo'>";
-					echo "<h2 class='form-titulo'>Ingresado exitosamente</h2>";
+					echo "<h2 class='form-titulo'>Tu quiniela se ha actualizado</h2>";
     				echo "<script>
             		setTimeout(function() {
                     location.href = 'bienvenido.php';
             		}, 2000);
         			</script>";
+				} else {
+					pg_free_result($result);
+					pg_close($dbconn);
+					echo "<body class='fondo'>";
+					echo "<h2 class='form-titulo'>No pudimos modificarlo, intentalo luego</h2>";
+    				echo "<script>
+            		setTimeout(function() {
+                    location.href = 'bienvenido.php';
+            		}, 3000);
+        			</script>";
 				}
-
-				pg_free_result($result);
-
-
-
-				pg_close($dbconn);
 			}
 		}
 	?>

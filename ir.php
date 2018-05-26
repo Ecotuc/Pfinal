@@ -5,7 +5,13 @@
 	$varsesion = $_SESSION['usuario'];
 
 	if($varsesion == null || $varsesion == ''){
-		echo 'Debe iniciar sesion para ingresar';
+		echo "<body class='fondo'>";
+		echo "<h2 class='form-titulo'>Debe iniciar sesion para ingresar</h2>";
+			echo "<script>
+						setTimeout(function() {
+								location.href = 'index.php';
+						}, 2000);
+					</script>";
 	}
 ?>
 
@@ -14,30 +20,17 @@
 <head>
 	<title>Calendario</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="ee1.css">
+	<link rel="stylesheet" href="e.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
-
 <body class="fondo">
-	<div class="xd">
-			<div id="header">
-				<ul class="nav">
-					<li><a href="bienvenido.php">Inicio</a></li>
-					<li><a href="calendariopartidos.php">Calendario</a></li>
-					<li><a href="calendario.php">Mi Quiniela</a></li>
-					<li><a href="displayequipos.php">Equipos</a></li>
-					<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
-				</ul>
-			</div>
-	</div>
 
-	<table>
+	<h2 class="form-titulo">Resultados</h2>
+ 	<div class="contenedor-inputs">
+
+	<table class="form-register">
 		<thead>
-			<tr>
-				<th>
-					Fase de Grupos
-				</th>
-			</tr>
+
 		</thead>
 		<tbody>
 			<?php
@@ -50,26 +43,43 @@
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
 
 			while ($row = pg_fetch_row($resultado)) {
-				$eq1=$row[0];
-				$eq2=$row[1];
+
+				$equipo1=$row[0];
+				$equipo2=$row[1];
+				$id=$row[6];
+
+
 				echo "<tr>
 						<th>
-							<br>$eq1<br>
-							$eq2<br><br>
+							<br>$equipo1<br>
+							$equipo2<br><br>
 						</th>
+						<th>
+							<br>";
+						echo "&nbsp;&nbsp;$row[4]&nbsp;&nbsp;<br>
+								&nbsp;&nbsp;$row[5]&nbsp;&nbsp;<br><br>";
+						echo "</th>
 						<th>
 							<br>$row[2]<br>
 							$row[3]<br><br>
+						</th>
+						<th>
+							<br>
+							&nbsp;&nbsp";
+							echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&fase=$fase'>Ingresar resultado</a>";
+							echo "<br><br>
 						</th>
 					</tr>";
 
 			}
 
 			pg_free_result($resultado);
+			pg_free_result($resultado2);
 			pg_close($dbconn);
 
 			?>
 		</tbody>
 	</table>
+</div>
 </body>
 </html>
