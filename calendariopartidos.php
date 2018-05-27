@@ -33,7 +33,9 @@
 	<br><br><br>
 	<div class="form-register">
 			<h2 class="form-titulo">Fase de grupos</h2>
-	<table>
+
+	<div class="contenedor-inputs">
+	<table class="form-register">
 
 		<tbody>
 			<?php
