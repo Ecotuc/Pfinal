@@ -40,11 +40,11 @@
 	<br><br><br>
 <div class="form-register">
 		<h2 class="form-titulo">Equipos</h2>
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo A
+					<center>Grupo A</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -104,11 +104,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo B
+					<br><center>Grupo B</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -168,11 +168,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo C
+					<br><center>Grupo C</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -232,11 +232,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo D
+					<br><center>Grupo D</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -296,11 +296,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo E
+					<br><center>Grupo E</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -360,11 +360,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo F
+					<br><center>Grupo F</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -424,11 +424,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo G
+					<br><center>Grupo G</center><br>
 				</th>
 			</tr>
 			<tr>
@@ -488,11 +488,11 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="form-register">
 		<thead>
 			<tr>
 				<th>
-					Grupo H
+					<br><center>Grupo H</center><br>
 				</th>
 			</tr>
 			<tr>

@@ -101,7 +101,7 @@
 					$result8 = pg_query($query8) or die('Query failed: ' . pg_last_error());
 
 					$row8 = pg_fetch_row($result8);
-					if($row8==16){
+					if($row8==48){
 						$query9 = "SELECT * FROM equipos WHERE grupo='A' ORDER BY puntos DESC";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 						$row9 = pg_fetch_row($result9);
@@ -175,7 +175,7 @@
 						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroH', '$segundoG', '03/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 
-					} else if($row8==24){
+					} else if($row8==56){
 
 						$query9 = "SELECT * FROM partidos WHERE fase = 'Octavos'";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
@@ -253,7 +253,7 @@
 						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana7', '$gana8', '07/07/2018', '08:00:00', 0, 0, 'Cuartos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 
-					} else if($row8==28){
+					} else if($row8==60){
 
 						$query9 = "SELECT * FROM partidos WHERE fase = 'Cuartos'";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
@@ -295,7 +295,7 @@
 						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana3', '$gana4', '11/07/2018', '12:00:00', 0, 0, 'Semifinales', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 
-					} else if($row8==30){
+					} else if($row8==62){
 
 						$query9 = "SELECT * FROM partidos WHERE fase = 'Semifinales'";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
@@ -324,10 +324,12 @@
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana1', '$gana2', '15/07/2018', '09:00:00', 0, 0, 'Final', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-
+					} else if($row8==64){
+						
 					}
-
-
-		?>
-	</body>
-	</html>
+				}
+			}
+		}
+	?>
+</body>
+</html>

@@ -82,6 +82,14 @@ h2 {
 	border-radius: 7px;
 }
 
+img {
+	border-radius: 8px;
+}
+
+th {
+	border-bottom: 1px solid #ddd;
+}
+
 .form-titulo{
 	background: deepskyblue;
 	color: #fff;
