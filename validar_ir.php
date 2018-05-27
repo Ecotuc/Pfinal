@@ -179,6 +179,7 @@
 
 						$query9 = "SELECT * FROM partidos WHERE fase = 'Octavos'";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
 						$row9 = pg_fetch_row($result9);
 						if($gole1>$gole2){
 							$gana1 = $row9[0];
@@ -186,6 +187,7 @@
 						else if($gole2>$gole1){
 							$gana1 = $row9[1];
 						}
+
 						$row10 = pg_fetch_row($result9);
 						if($gole1>$gole2){
 							$gana2 = $row10[0];
@@ -242,26 +244,86 @@
 							$gana8 = $row10[1];
 						}
 
-
-
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroC', '$segundoD', '30/06/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana2', '$gana1', '06/07/2018', '08:00:00', 0, 0, 'Cuartos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroA', '$segundoB', '30/06/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana5', '$gana6', '06/07/2018', '12:00:00', 0, 0, 'Cuartos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroB', '$segundoA', '01/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana3', '$gana4', '07/07/2018', '12:00:00', 0, 0, 'Cuartos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroD', '$segundoC', '01/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
-						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroE', '$segundoF', '02/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
-						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroG', '$segundoH', '02/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
-						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroF', '$segundoE', '03/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
-						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
-						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroH', '$segundoG', '03/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana7', '$gana8', '07/07/2018', '08:00:00', 0, 0, 'Cuartos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 
+					} else if($row8==28){
 
+						$query9 = "SELECT * FROM partidos WHERE fase = 'Cuartos'";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
+						$row9 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana1 = $row9[0];
+						}
+						else if($gole2>$gole1){
+							$gana1 = $row9[1];
+						}
+
+						$row10 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana2 = $row10[0];
+						}
+						else if($gole2>$gole1){
+							$gana2 = $row10[1];
+						}
+
+						$row11 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana3 = $row9[0];
+						}
+						else if($gole2>$gole1){
+							$gana3 = $row9[1];
+						}
+
+						$row12 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana4 = $row10[0];
+						}
+						else if($gole2>$gole1){
+							$gana4 = $row10[1];
+						}
+
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana2', '$gana1', '10/07/2018', '12:00:00', 0, 0, 'Semifinales', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana3', '$gana4', '11/07/2018', '12:00:00', 0, 0, 'Semifinales', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
+					} else if($row8==30){
+
+						$query9 = "SELECT * FROM partidos WHERE fase = 'Semifinales'";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
+						$row9 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana1 = $row9[0];
+							$pierde1 = $row9[1];
+						}
+						else if($gole2>$gole1){
+							$gana1 = $row9[1];
+							$pierde1=$row9[0];
+						}
+
+						$row10 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana2 = $row10[0];
+							$pierde2 = $row10[1];
+						}
+						else if($gole2>$gole1){
+							$gana2 = $row10[1];
+							$pierde2 = $row10[0];
+						}
+
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$pierde1', '$pierde2', '14/07/2018', '08:00:00', 0, 0, 'Tercero', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana1', '$gana2', '15/07/2018', '09:00:00', 0, 0, 'Final', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 
 					}
 
