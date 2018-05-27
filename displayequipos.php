@@ -143,7 +143,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
@@ -207,7 +207,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
@@ -271,7 +271,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
@@ -335,7 +335,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
@@ -399,7 +399,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
@@ -463,7 +463,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
@@ -527,7 +527,7 @@
 
 				echo "<tr>
 					<th>";
-				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="100" width="150"/><br>';
+				echo '<img src = "data:image/jpg;base64,'.base64_encode(pg_unescape_bytea($row[1])).'" heigh="5" width="55"/><br>';
 				echo "</th>
 					<th>
 						$row[0]
