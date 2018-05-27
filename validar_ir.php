@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="e2.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
+
 <body class="fondo">
 
 		<?php
@@ -45,13 +46,8 @@
 					$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
 	    			or die('Could not connect: ' . pg_last_error());
 
-					$query2 = "UPDATE partidos SET gole1='$gole1', gole2='$gole2' WHERE id='$id' AND fase='$fase'";
+					$query2 = "UPDATE partidos SET gole1='$gole1', gole2='$gole2', cf=1 WHERE id='$id' AND fase='$fase'";
 					$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
-					echo "Equipo1 es $e1 goles $gole1<br>";
-					echo "Equipo2 es $e2 goles $gole2<br>";
-					echo "id es $id<br>";
-					echo "fase es $fase<br><br><br>";
-					echo "funciona";
 
 					// ACTUALIZACIÓN TABLA EQUIPOS
 
@@ -96,32 +92,180 @@
 								$puntos=($puntos+1);
 							}
 							else if(($gole2>$gole1)&&($ge2>$ge1)){
-								$puntos=(Epuntos+1);
+								$puntos=($puntos+1);
 							}
 						}
 					}
 
+					$query8 = "SELECT * FROM partidos WHERE cf=1";
+					$result8 = pg_query($query8) or die('Query failed: ' . pg_last_error());
 
-					if($result2){
-						pg_free_result($result);
-						pg_close($dbconn);
-						echo "<h2 class='form-titulo'>El resultado se ha ingresado</h2>";
-	    				echo "<script>
-	            		setTimeout(function() {
-	                    location.href = 'bienvenido.php';
-	            		}, 2000);
-	        			</script>";
-					} else {
-						pg_free_result($result);
-						pg_close($dbconn);
-						echo "<h2 class='form-titulo'>No se ingresó</h2>";
-	    				echo "<script>
-	            		setTimeout(function() {
-	                    location.href = 'bienvenido.php';
-	            		}, 3000);
-	        			</script>";
-							}
+					$row8 = pg_fetch_row($result8);
+					if($row8==16){
+						$query9 = "SELECT * FROM equipos WHERE grupo='A' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroA = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoA = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='B' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroB = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoB = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='C' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroC = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoC = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='D' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroD = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoD = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='E' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroE = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoE = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='F' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroF = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoF = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='G' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroG = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoG = $row10[0];
+
+						$query9 = "SELECT * FROM equipos WHERE grupo='H' ORDER BY puntos DESC";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						$primeroH = $row9[0];
+						$row10 = pg_fetch_row($result9);
+						$segundoH = $row10[0];
+
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroC', '$segundoD', '30/06/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroA', '$segundoB', '30/06/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroB', '$segundoA', '01/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroD', '$segundoC', '01/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroE', '$segundoF', '02/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroG', '$segundoH', '02/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroF', '$segundoE', '03/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroH', '$segundoG', '03/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
+					} else if($row8==24){
+
+						$query9 = "SELECT * FROM partidos WHERE fase = 'Octavos'";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$row9 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana1 = $row9[0];
 						}
+						else if($gole2>$gole1){
+							$gana1 = $row9[1];
+						}
+						$row10 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana2 = $row10[0];
+						}
+						else if($gole2>$gole1){
+							$gana2 = $row10[1];
+						}
+
+						$row11 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana3 = $row9[0];
+						}
+						else if($gole2>$gole1){
+							$gana3 = $row9[1];
+						}
+
+						$row12 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana4 = $row10[0];
+						}
+						else if($gole2>$gole1){
+							$gana4 = $row10[1];
+						}
+
+						$row13 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana5 = $row9[0];
+						}
+						else if($gole2>$gole1){
+							$gana5 = $row9[1];
+						}
+
+						$row14 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana6 = $row10[0];
+						}
+						else if($gole2>$gole1){
+							$gana6 = $row10[1];
+						}
+
+						$row15 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana7 = $row9[0];
+						}
+						else if($gole2>$gole1){
+							$gana7 = $row9[1];
+						}
+
+						$row16 = pg_fetch_row($result9);
+						if($gole1>$gole2){
+							$gana8 = $row10[0];
+						}
+						else if($gole2>$gole1){
+							$gana8 = $row10[1];
+						}
+
+
+
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroC', '$segundoD', '30/06/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroA', '$segundoB', '30/06/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroB', '$segundoA', '01/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroD', '$segundoC', '01/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroE', '$segundoF', '02/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroG', '$segundoH', '02/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroF', '$segundoE', '03/07/2018', '08:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroH', '$segundoG', '03/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
+						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
+
+
+					}
+
+
 		?>
 	</body>
 	</html>

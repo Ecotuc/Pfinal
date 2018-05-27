@@ -22,7 +22,7 @@
 <head>
 	<title>Ingreso equipo</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="ee.css">
+	<link rel="stylesheet" href="e2.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 <body class="fondo">
@@ -39,10 +39,10 @@
 		$f3=0;
 		$f7=0;
 		if(isset($_POST['submit'])){
-			if(!empty($gole1)){
+			if($gole1>=0){
 				$f1=1;
 			}
-			if(!empty($gole2)){
+			if($gole2>=0){
 				$f2=1;
 			}
 			if(($f1==1)&&($f2==1)){
@@ -58,7 +58,7 @@
 						$query2 = "UPDATE quiniela SET gole1='$gole1', gole2='$gole2' WHERE idpartido='$id' AND usuario='$usuario'";
 						$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
 					} else {
-						$query2 = "INSERT INTO quiniela(usuario, idpartido, gole1, gole2, puntos) VALUES ('$usuario', '$id', '$gole1', '$gole2', 0)";
+						$query2 = "INSERT INTO quiniela(usuario, idpartido, gole1, gole2) VALUES ('$usuario', '$id', '$gole1', '$gole2')";
 						$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
 					}
 

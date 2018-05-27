@@ -14,7 +14,7 @@
 <head>
 	<title>Calendario</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="ee1.css">
+	<link rel="stylesheet" href="eq3.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 
@@ -30,15 +30,11 @@
 				</ul>
 			</div>
 	</div>
-
+	<br><br><br>
+	<div class="form-register">
+			<h2 class="form-titulo">Fase de grupos</h2>
 	<table>
-		<thead>
-			<tr>
-				<th>
-					Fase de Grupos
-				</th>
-			</tr>
-		</thead>
+
 		<tbody>
 			<?php
 
@@ -71,5 +67,6 @@
 			?>
 		</tbody>
 	</table>
+	<div>
 </body>
 </html>

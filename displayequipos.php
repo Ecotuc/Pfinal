@@ -14,12 +14,32 @@
 <head>
 	<title>Equipos</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="ee.css">
+	<link rel="stylesheet" href="eq3.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 
 <body class="fondo">
+	<div class="xd">
+				<div id="header">
+					<ul class="nav">
+						<li><a href="bienvenido.php">Inicio</a></li>
+						<li><a href="calendariopartidos.php">Calendario</a></li>
+						<li><a href="calendario.php">Mi Quiniela</a></li>
+						<li><a href="displayequipos.php">Equipos</a></li>
+						<?php
+							if($varsesion =='admin'){
+									echo"<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
+									<li><a href=\"resultados.php\">Ingresar Resultados</a></li>";
+							}
+						 ?>
+						<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
 
+					</ul>
+				</div>
+		</div>
+	<br><br><br>
+<div class="form-register">
+		<h2 class="form-titulo">Equipos</h2>
 	<table>
 		<thead>
 			<tr>
@@ -54,7 +74,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='A'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -74,7 +94,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -118,7 +138,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='B'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -138,7 +158,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -182,7 +202,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='C'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -202,7 +222,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -246,7 +266,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='D'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -266,7 +286,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -310,7 +330,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='E'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -330,7 +350,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -374,7 +394,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='F'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -394,7 +414,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -438,7 +458,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='G'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -458,7 +478,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -502,7 +522,7 @@
 			$query1 = "SELECT * FROM equipos WHERE grupo='H'";
 
 			$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-			
+
 			while ($row = pg_fetch_row($resultado)) {
 
 				echo "<tr>
@@ -522,7 +542,7 @@
 						$row[3]
 					</th>
 				</tr>";
-			
+
 			}
 
 			pg_free_result($resultado);
@@ -531,6 +551,6 @@
 			?>
 		</tbody>
 	</table>
-
+<div>
 </body>
 </html>

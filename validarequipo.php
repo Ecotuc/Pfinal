@@ -14,7 +14,7 @@
 <head>
 	<title>Ingreso equipo</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="ee.css">
+	<link rel="stylesheet" href="e2.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 <body>
@@ -41,7 +41,7 @@
 			}
 
 			$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
-    			or die('Could not connect: ' . pg_last_error()); 
+    			or die('Could not connect: ' . pg_last_error());
 
 			$query2 = "SELECT * FROM equipos WHERE '$nombre'=nombre";
 
@@ -73,7 +73,7 @@
 					pg_free_result($result);
 					pg_close($dbconn);
 					echo "<body class='fondo'>";
-					echo "<h2 class='form-titulo'>Ingresado exitosamente</h2>";
+					echo "<h2 class='form-titulo'>Equipo ingresado exitosamente</h2>";
     				echo "<script>
             		setTimeout(function() {
                     location.href = 'bienvenido.php';
