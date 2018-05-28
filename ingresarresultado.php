@@ -20,27 +20,33 @@
 <head>
 	<title>Ingreso resultado</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="eq3.css">
+	<link rel="stylesheet" href="e.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 <body class="fondo">
 	<div class="xd">
-				<div id="header">
-					<ul class="nav">
-						<li><a href="bienvenido.php">Inicio</a></li>
-						<li><a href="calendariopartidos.php">Calendario</a></li>
-						<li><a href="calendario.php">Mi Quiniela</a></li>
-						<li><a href="displayequipos.php">Equipos</a></li>
-						<?php
-							if($varsesion =='admin'){
-									echo"<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
-									<li><a href=\"resultados.php\">Ingresar Resultados</a></li>";
-							}
-						 ?>
-						<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+		<div id="header">
+			<ul class="nav">
+				<li><a href="bienvenido.php">Inicio</a></li>
+				<li><a href="calendariopartidos.php">Calendario</a></li>
+				<?php
+					if(!($varsesion =='admin')){
+							echo "<li><a href=\"calendario.php\">Mi Quiniela</a></li>";
+					}
+				 ?>
 
-					</ul>
-				</div>
+				<li><a href="displayequipos.php">Equipos</a></li>
+				<?php
+					if($varsesion =='admin'){
+							echo "<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
+							<li><a href=\"resultados.php\">Ingresar Resultados</a></li>
+							<li><a href=\"equipo.php\">Ingresar Equipos</a></li>";
+					}
+				 ?>
+				<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+
+			</ul>
+		</div>
 		</div>
 		<br><br><br>
 	<form action="validar_ir.php" method="post" class="form-register" >
@@ -73,21 +79,21 @@
 			echo "<input type=hidden name=id value=$id>";
 			echo "<input type=hidden name=e1 value=$e1>";
 			echo "<input type=hidden name=e2 value=$e2>";
-			echo "<input type=hidden name=fase value=$fase>";
+			echo "<input type=hidden name=fase value=$fase><br>";
 
 			if($rows>0){
-			    echo $e1;
-    			echo "<input type=number name=golese1 value=$G1 required><br>";
+			    echo "<br>",$e1;
+    			echo "<center><input type=number name=golese1 value=$G1 required><br></center>";
     			echo $e2;
-    			echo "<input type=number name=golese2 value=$G2 required>";
+    			echo "<center><input type=number name=golese2 value=$G2 required></center>";
     		} else {
-    			echo $e1;
-    			echo "<input type=number name=golese1 value=0 required><br>";
+    			echo "<br>", $e1;
+    			echo "<center><input type=number name=golese1 value=0 required><br></center>";
     			echo $e2;
-    			echo "<input type=number name=golese2 value=0 required>";
+    			echo "<center><input type=number name=golese2 value=0 required></center>";
     		}
 
-    		echo "<input type='submit' name='submit' value='Ingresar' class='btn-enviar' required>";
+    		echo "<br><center><input type='submit' name='submit' value='Ingresar' class='btn-enviar' required></center>";
 
     		pg_free_result($result);
 			pg_close($dbconn);

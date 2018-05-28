@@ -22,7 +22,7 @@
 <head>
 	<title>Ingreso resultado</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="e2.css">
+	<link rel="stylesheet" href="e1.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 
@@ -325,11 +325,9 @@
 						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$gana1', '$gana2', '15/07/2018', '09:00:00', 0, 0, 'Final', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 					} else if($row8==64){
-						
+						echo "es64";
 					}
 				}
-			}
-		}
 	?>
 </body>
 </html>

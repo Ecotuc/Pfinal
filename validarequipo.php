@@ -14,7 +14,7 @@
 <head>
 	<title>Ingreso equipo</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="e2.css">
+	<link rel="stylesheet" href="e1.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 <body>

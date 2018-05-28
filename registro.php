@@ -3,7 +3,7 @@
 	<head>
 			<meta charset="utf-8">
 			<title>Registro</title>
-			<link rel="stylesheet" type="text/css" href="e2.css">
+			<link rel="stylesheet" type="text/css" href="e1.css">
 		<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 	</head>
 	<body class="fondo">

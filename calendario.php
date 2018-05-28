@@ -7,6 +7,7 @@
 	if($varsesion == null || $varsesion == ''){
 		echo 'Debe iniciar sesion para ingresar';
 	}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,27 +15,33 @@
 <head>
 	<title>Calendario</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="eq3.css">
+	<link rel="stylesheet" href="e.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 <body class="fondo">
 <div class="xd">
-			<div id="header">
-				<ul class="nav">
-					<li><a href="bienvenido.php">Inicio</a></li>
-					<li><a href="calendariopartidos.php">Calendario</a></li>
-					<li><a href="calendario.php">Mi Quiniela</a></li>
-					<li><a href="displayequipos.php">Equipos</a></li>
-					<?php
-						if($varsesion =='admin'){
-								echo"<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
-								<li><a href=\"resultados.php\">Ingresar Resultados</a></li>";
-						}
-					 ?>
-					<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+	<div id="header">
+		<ul class="nav">
+			<li><a href="bienvenido.php">Inicio</a></li>
+			<li><a href="calendariopartidos.php">Calendario</a></li>
+			<?php
+				if(!($varsesion =='admin')){
+						echo "<li><a href=\"calendario.php\">Mi Quiniela</a></li>";
+				}
+			 ?>
 
-				</ul>
-			</div>
+			<li><a href="displayequipos.php">Equipos</a></li>
+			<?php
+				if($varsesion =='admin'){
+						echo "<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
+						<li><a href=\"resultados.php\">Ingresar Resultados</a></li>
+						<li><a href=\"equipo.php\">Ingresar Equipos</a></li>";
+				}
+			 ?>
+			<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+
+		</ul>
+	</div>
 	</div>
 <br><br><br>
 <div class="form-register">
@@ -49,13 +56,24 @@
 
 			<tbody>
 				 <?php
+				 date_default_timezone_set('Etc/GMT+6');
+				 $hoy = date("Y-m-d");
+				 $hr=date("H:i:s");
+				 echo "<center>Fecha: $hoy<br><br>
+				  Hora: $hr<br><br></center>";
 
 				$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
 	    			or die('Could not connect: ' . pg_last_error());
 
 				$query1 = "SELECT * FROM partidos ORDER BY fecha";
-
 				$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
+
+
+				$dia = date(l);
+				$mes = date(F);
+				$año = date(Y);
+				$hora = date(h);
+				$minutos = date(i);
 
 				while ($row = pg_fetch_row($resultado)) {
 					$id=$row[6];
@@ -70,8 +88,6 @@
 					$rows = pg_num_rows($resultado2);
 					$equipo1=$row[0];
 					$equipo2=$row[1];
-
-
 
 					echo "<tr>
 							<th>
@@ -95,11 +111,28 @@
 							</th>
 							<th>
 								<br>
-								&nbsp;&nbsp;
-								<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
-								<br><br>
-							</th>
-						</tr>";
+								&nbsp;&nbsp";
+								date_default_timezone_set('Etc/GMT+6');
+			 				 $h2 = date("Y-m-d");
+			 				 $hr2=date("H:i:s");
+
+								if(strtotime($row[2]) >= strtotime($h2) ) {
+									echo "Esta fecha $row[2] es más reciente que esta $h2<br><br>";
+									if (time($row[3]) < time($hr2)){
+										
+									// echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
+									// <br><br>
+									// </th>";
+									}else {
+									// echo "<br>Mal hora<br>
+									// </th>";
+								}
+							} else {
+									echo "<br>Esta fecha $row[2] es más antigua que esta $h2<br>
+									</th>";
+								}
+
+						echo "</tr>";
 
 				}
 

@@ -4,8 +4,14 @@
 
 	$varsesion = $_SESSION['usuario'];
 
-	if($varsesion == null || $varsesion == ''){
-		echo 'Debe iniciar sesion para ingresar';
+	if($varsesion == null || $varsesion == ''|| !($varsesion == 'admin')){
+		echo "<body class='fondo'>";
+		echo "<h2 class='form-titulo'>Debe iniciar como administrador para ingresar</h2><br><br>";
+			echo "<script>
+						setTimeout(function() {
+								location.href = 'index.php';
+						}, 2000);
+					</script>";
 	}
 ?>
 
@@ -14,27 +20,33 @@
 <head>
 	<title>Ingreso partido</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="e3.css">
+	<link rel="stylesheet" href="e1.css">
 	<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 </head>
 <body class="fondo">
 	<div class="xd">
-				<div id="header">
-					<ul class="nav">
-						<li><a href="bienvenido.php">Inicio</a></li>
-						<li><a href="calendariopartidos.php">Calendario</a></li>
-						<li><a href="calendario.php">Mi Quiniela</a></li>
-						<li><a href="displayequipos.php">Equipos</a></li>
-						<?php
-							if($varsesion =='admin'){
-									echo"<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
-									<li><a href=\"resultados.php\">Ingresar Resultados</a></li>";
-							}
-						 ?>
-						<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+		<div id="header">
+			<ul class="nav">
+				<li><a href="bienvenido.php">Inicio</a></li>
+				<li><a href="calendariopartidos.php">Calendario</a></li>
+				<?php
+					if(!($varsesion =='admin')){
+							echo "<li><a href=\"calendario.php\">Mi Quiniela</a></li>";
+					}
+				 ?>
 
-					</ul>
-				</div>
+				<li><a href="displayequipos.php">Equipos</a></li>
+				<?php
+					if($varsesion =='admin'){
+							echo "<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
+							<li><a href=\"resultados.php\">Ingresar Resultados</a></li>
+							<li><a href=\"equipo.php\">Ingresar Equipos</a></li>";
+					}
+				 ?>
+				<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+
+			</ul>
+		</div>
 		</div>
 		<br><br><br>
 

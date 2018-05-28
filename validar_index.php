@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Index</title>
-		<link rel="stylesheet" type="text/css" href="e2.css">
+		<link rel="stylesheet" type="text/css" href="e1.css">
 		<link rel="icon" type="imgage/png" href="Russia.png" sizes="32x32">
 	</head>
 
-<?php 
+<?php
 
 	session_start();
 	error_reporting(0);
@@ -29,7 +29,7 @@
 		if(($f1==1)&&($f2==1)){
 			$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
 				or die('Could not connect: ' . pg_last_error());
-				
+
 			$query = "SELECT * FROM users WHERE '$usuario'=usuario AND '$contraseña'=pswrd";
 			$result = pg_query($dbconn, $query) or die('Query failed: ' . pg_last_error());
 
