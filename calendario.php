@@ -106,7 +106,7 @@
 								$row[3]<br><br>
 							</th>
 							<th>
-								<br>
+								<hr style=\"height:5px; visibility:hidden;\" />
 								&nbsp;&nbsp";
 								date_default_timezone_set('Etc/GMT+6');
 			 				 $hoy2 = date("Y-m-d");
@@ -114,20 +114,22 @@
 							 $limf = $row[2];
 							 $limh = $row[3];
 
-								if(strtotime($hoy2) <= strtotime($limf)) {
-									echo "Esta fecha $hoy2 es más antigua o igual que esta $limf<br><br>";
-									if (time($hora2) >= time($limh)){
-										echo "Esto $hora2 es más tarde que esto $limh <br><br>";
-									// echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
-									// <br><br>
-									// </th>";
-									}else {
-										echo "Esto $hora2 es más temprano que esto $limh<br><br>";
-									// echo "<br>Mal hora<br>
-									// </th>";
+								if(strtotime($hoy2) < strtotime($limf)) {
+									echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
+									<br><br>
+									</th>";
+
+							} else if (strtotime($hoy2) == strtotime($limf)) {
+								if (strtotime($hora2) > strtotime($limh)){
+									echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
+									</th>";
+								}else {
+									echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
+									<br><br>
+									</th>";
 								}
-							} else {
-									echo "¡El partido ya inicio!<br>
+							}else {
+									echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
 									</th>";
 								}
 
