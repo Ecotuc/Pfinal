@@ -140,18 +140,42 @@ INSERT INTO partidos('Irán', 'Portugal', '25/06/2018', '12:00:00', 0, 0, 'Grupo
 --GRUPO C
 INSERT INTO partidos('Francia', 'Australia', '16/06/2018', '04:00:00', 0, 0, 'Grupos', 0);
 INSERT INTO partidos('Perú', 'Dinamarca', '16/06/2018', '10:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Francia', 'Perú', '21/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Dinamarca', 'Australia', '21/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Australia', 'Perú', '26/06/2018', '08:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Dinamarca', 'Francia', '26/06/2018', '08:00:00', 0, 0, 'Grupos', 0);
 --GRUPO D
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Argentina', 'Islandia', '16/06/2018', '07:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Croacia', 'Nigeria', '16/06/2018', '13:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Argentina', 'Croacia', '21/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Nigeria', 'Islanda', '22/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Islandia', 'Croacia', '26/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Nigeria', 'Argentina', '26/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
 --GRUPO E
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
-INSERT INTO partidos('Rusia', 'A.Saudita', '14/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('C.Rica', 'Serbia', '17/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Brasil', 'Suiza', '17/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Brasil', 'C.Rica', '22/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Serbia', 'Suiza', '22/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Suiza', 'C.Rica', '27/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Serbia', 'Brasil', '27/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+--GRUPO F
+INSERT INTO partidos('Alemania', 'México', '17/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Suecia', 'CoreaS.', '18/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Alemania', 'Suecia', '23/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('CoreaS.', 'México', '23/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('México', 'Suecia', '27/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('CoreaS.', 'Alemania', '27/06/2018', '08:00:00', 0, 0, 'Grupos', 0);
+--GRUPO G
+INSERT INTO partidos('Bélgica', 'Panamá', '18/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Túnez', 'Inglaterra', '18/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Bélgica', 'Túnez', '23/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Inglaterra', 'Panamá', '24/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Panamá', 'Túnez', '28/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Inglaterra', 'Bélgica', '28/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+--GRUPO H
+INSERT INTO partidos('Polonia', 'Senegal', '19/06/2018', '06:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Colombia', 'Japón', '19/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Japón', 'Senegal', '24/06/2018', '09:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Polonia', 'Colombia', '24/06/2018', '12:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Senegal', 'Colombia', '28/06/2018', '08:00:00', 0, 0, 'Grupos', 0);
+INSERT INTO partidos('Japón', 'Polonia', '28/06/2018', '08:00:00', 0, 0, 'Grupos', 0);
