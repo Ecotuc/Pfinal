@@ -1,11 +1,15 @@
 <?php
 	session_start();
 	error_reporting(0);
-
 	$varsesion = $_SESSION['usuario'];
-
-	if($varsesion == null || $varsesion == ''){
-		echo 'Debe iniciar sesion para ingresar';
+	if($varsesion == null || $varsesion == ''|| ($varsesion == 'admin')){
+		echo "<body class='fondo'>";
+		echo "<h2 class='form-titulo'>Debe iniciar como usuario existente para ingresar</h2>";
+			echo "<script>
+						setTimeout(function() {
+								location.href = 'index.php';
+						}, 2000);
+					</script>";
 	}
 ?>
 
@@ -75,8 +79,6 @@
          }else{
             echo "<center><h1>$varsesion lo sentimos no has logrado ser el ganador, intentalo en la siguiente fase</h1></center>";
          }
-
-
        ?>
 	   </div>
 

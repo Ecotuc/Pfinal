@@ -1,13 +1,17 @@
+
 <?php
 	session_start();
 	error_reporting(0);
-
 	$varsesion = $_SESSION['usuario'];
-
-	if($varsesion == null || $varsesion == ''){
-		echo 'Debe iniciar sesion para ingresar';
+	if($varsesion == null || $varsesion == ''|| ($varsesion == 'admin')){
+		echo "<body class='fondo'>";
+		echo "<h2 class='form-titulo'>Debe iniciar como usuario existente para ingresar</h2>";
+			echo "<script>
+						setTimeout(function() {
+								location.href = 'index.php';
+						}, 2000);
+					</script>";
 	}
-
 ?>
 
 <!DOCTYPE html>
@@ -74,18 +78,13 @@
 
 			<tbody>
 				 <?php
-
 				$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
 	    			or die('Could not connect: ' . pg_last_error());
-
 				$query1 = "SELECT * FROM partidos ORDER BY fecha";
 				$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-
 				while ($row = pg_fetch_row($resultado)) {
 					$id=$row[6];
-
 					$query2 = "SELECT * FROM quiniela WHERE usuario='$varsesion'  AND '$id'=idpartido";
-
 					$resultado2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
 						while ($row2 = pg_fetch_row($resultado2)) {
 							$G1=$row2[2];
@@ -94,7 +93,6 @@
 					$rows = pg_num_rows($resultado2);
 					$equipo1=$row[0];
 					$equipo2=$row[1];
-
 					echo "<tr>
 							<th>
 								<br>$equipo1<br>
@@ -102,7 +100,6 @@
 							</th>
 							<th>
 								<br>";
-
 							if($rows>0){
 								echo "&nbsp;&nbsp;$G1&nbsp;&nbsp;<br>
 									&nbsp;&nbsp;$G2&nbsp;&nbsp;<br><br>";
@@ -123,12 +120,10 @@
 			 				 $hora2=date("H:i:s");
 							 $limf = $row[2];
 							 $limh = $row[3];
-
 							 if(strtotime($hoy2) < strtotime($limf)) {
 								 echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
 								 <br><br>
 								 </th>";
-
 						 } else if (strtotime($hoy2) == strtotime($limf)) {
 							 if (strtotime($hora2) > strtotime($limh)){
 								 echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
@@ -142,15 +137,11 @@
 								 echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
 								 </th>";
 							 }
-
 						echo "</tr>";
-
 				}
-
 				pg_free_result($resultado);
 				pg_free_result($resultado2);
 				pg_close($dbconn);
-
 				?>
 			</tbody>
 		</table>

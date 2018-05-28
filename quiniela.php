@@ -1,14 +1,10 @@
-<!-- TIENE ERRORES -->
-
 <?php
 	session_start();
 	error_reporting(0);
-
 	$varsesion = $_SESSION['usuario'];
-
-	if($varsesion == null || $varsesion == ''){
+	if($varsesion == null || $varsesion == ''|| ($varsesion == 'admin')){
 		echo "<body class='fondo'>";
-		echo "<h2 class='form-titulo'>Debe iniciar sesion para ingresar</h2>";
+		echo "<h2 class='form-titulo'>Debe iniciar como usuario existente para ingresar</h2>";
 			echo "<script>
 						setTimeout(function() {
 								location.href = 'index.php';
@@ -60,31 +56,23 @@
 	 	<div class="contenedor-inputs">
 
 	 		<?php
-
 			$e1=$_GET['equipo1'];
 			$e2=$_GET['equipo2'];
 			$id=$_GET['id'];
 			$usuario=$_GET['usuario'];
-
 			$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
     			or die('Could not connect: ' . pg_last_error());
-
 			$query2 = "SELECT * FROM quiniela WHERE '$varsesion'=usuario AND '$id'=idpartido";
-
 			$resultado2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
-
 			while ($row2 = pg_fetch_row($resultado2)) {
 				$G1=$row2[2];
 				$G2=$row2[3];
 			}
-
 			$rows = pg_num_rows($resultado2);
-
 			echo "<br><br><input type=hidden name=id value=$id>";
 			echo "<input type=hidden name=e1 value=$e1>";
 			echo "<input type=hidden name=e2 value=$e2>";
 			echo "<input type=hidden name=usuario value=$usuario>";
-
 			if($rows>0){
 			    echo "<br>",$e1;
     			echo "<center><input type=number name=golese1 value=$G1 required><br></center>";
@@ -96,13 +84,9 @@
     			echo $e2;
     			echo "<center><input type=number name=golese2 value=0 required></center>";
     		}
-
-
     		echo "<br><center><input type='submit' name='submit' value='Ingresar' class='btn-enviar' required></center>";
-
     		pg_free_result($result);
 			pg_close($dbconn);
-
 			?>
 	 	</div>
 	</form>
