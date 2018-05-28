@@ -51,19 +51,29 @@
 	<h2 class="form-titulo">Tus resultados</h2>
 	<div class="contenedor-inputs">
 
-		<table class="form-register">
+		<div style="overflow-x:auto;">
+
+		<table class="form-register"><br>
 
 			<thead>
+				<tr>
+					<th>
+						&nbsp;&nbsp;Equipos&nbsp;&nbsp;
+					</th>
+					<th>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</th>
+					<th>
+					&nbsp;&nbsp;&nbsp;Fecha/Hora&nbsp;&nbsp;&nbsp;
+					</th>
+					<th>
 
+					</th>
+				</tr>
 			</thead>
 
 			<tbody>
 				 <?php
-				 date_default_timezone_set('Etc/GMT+6');
-				 $hoy = date("Y-m-d");
-				 $hr=date("H:i:s");
-				 echo "<center>Fecha: $hoy<br><br>
-				  Hora: $hr<br><br></center>";
 
 				$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
 	    			or die('Could not connect: ' . pg_last_error());
@@ -114,24 +124,24 @@
 							 $limf = $row[2];
 							 $limh = $row[3];
 
-								if(strtotime($hoy2) < strtotime($limf)) {
-									echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
-									<br><br>
-									</th>";
+							 if(strtotime($hoy2) < strtotime($limf)) {
+								 echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
+								 <br><br>
+								 </th>";
 
-							} else if (strtotime($hoy2) == strtotime($limf)) {
-								if (strtotime($hora2) > strtotime($limh)){
-									echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
-									</th>";
-								}else {
-									echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
-									<br><br>
-									</th>";
-								}
-							}else {
-									echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
-									</th>";
-								}
+						 } else if (strtotime($hoy2) == strtotime($limf)) {
+							 if (strtotime($hora2) > strtotime($limh)){
+								 echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
+								 </th>";
+							 }else {
+								 echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
+								 <br><br>
+								 </th>";
+							 }
+						 }else {
+								 echo "<div>¡El tiempo para ingresar tu quiniela se ha agotado!</div><br>
+								 </th>";
+							 }
 
 						echo "</tr>";
 
@@ -144,6 +154,7 @@
 				?>
 			</tbody>
 		</table>
+	</div>
 	</div>
 </body>
 

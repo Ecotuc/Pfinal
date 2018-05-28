@@ -46,7 +46,7 @@
 	</div>
 	<br><br><br>
 	<div class="form-register">
-			<h2 class="form-titulo">Fase de grupos</h2>
+			<h2 class="form-titulo">Calendario</h2>
 
 	<div class="contenedor-inputs">
 	<table class="form-register">
@@ -60,6 +60,7 @@
 			while ($row = pg_fetch_row($resultado)) {
 				$eq1=$row[0];
 				$eq2=$row[1];
+				$fase = $row[7];
 				echo "<tr>
 						<th>
 							<br>$eq1<br>
@@ -69,6 +70,18 @@
 							<br>$row[2]<br>
 							$row[3]<br><br>
 						</th>
+						<th>";
+							if($row[8]==1){
+								echo "<br>$row[4]<br>
+									$row[5]<br><br>";
+							} else {
+								echo "<br>-<br>
+									-<br><br>";
+							}
+						echo "</th>
+						<th>
+							<br>Fase de<br>
+							$fase<br><br>
 					</tr>";
 			}
 			pg_free_result($resultado);

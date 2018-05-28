@@ -6,9 +6,9 @@
 
 	$varsesion = $_SESSION['usuario'];
 
-	if($varsesion == null || $varsesion == ''){
+	if($varsesion == null || $varsesion == ''|| ($varsesion == 'admin')){
 		echo "<body class='fondo'>";
-		echo "<h2 class='form-titulo'>Debe iniciar sesion para ingresar</h2>";
+		echo "<h2 class='form-titulo'>Debe iniciar como usuario existente para ingresar</h2>";
 			echo "<script>
 						setTimeout(function() {
 								location.href = 'index.php';
@@ -16,7 +16,7 @@
 					</script>";
 	}
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -58,7 +58,20 @@
 
 			<table class="form-register">
 				<thead>
+					<tr>
+						<th>
+							&nbsp;&nbsp;Equipos&nbsp;&nbsp;
+						</th>
+						<th>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</th>
+						<th>
+						&nbsp;&nbsp;&nbsp;Fecha/Hora&nbsp;&nbsp;&nbsp;
+						</th>
+						<th>
 
+						</th>
+					</tr>
 				</thead>
 				<tbody>
 					<?php
@@ -92,13 +105,31 @@
 									$row[3]<br><br>
 								</th>
 								<th>
-									<br>
+									<hr style=\"height:0px; visibility:hidden;\" />
 									&nbsp;&nbsp";
 									if($cf==0){
-										echo "<a href='ingresarresultado.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&fase=$fase'>Ingresar resultado</a>";
-										echo "<br><br>";
+									 date_default_timezone_set('Etc/GMT+6');
+					 				 $hoy2 = date("Y-m-d");
+					 				 $hora2=date("H:i:s");
+									 $limf = $row[2];
+									 $limh = $row[3];
+									 $hn = strtotime($limh)+5400;
+									 // if(strtotime($hoy2) < strtotime($limf)) {
+										// 	echo "<div>¡El partido aun no ha iniciado!</div><br>
+										// 	</th>";
+									 //
+									 // }else if (strtotime($hoy2) == strtotime($limf)) {
+										// 	if (strtotime($hora2) > $hn){
+												echo "<a href='ingresarresultado.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&fase=$fase'>Ingresar resultado</a>
+												<br><br>
+												</th>";
+										// 	}else {
+										// 		echo "<div>¡El partido aun no ha iniciado!</div><br>
+										// 		</th>";
+										// 	}
+									 // }
 									}else {
-											echo "<br><br>";
+											echo "<br>Este resultado ya fue ingresado<br>";
 									}
 
 								echo "</th>

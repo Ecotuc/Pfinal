@@ -4,9 +4,9 @@
 
 	$varsesion = $_SESSION['usuario'];
 
-	if($varsesion == null || $varsesion == ''){
+	if($varsesion == null || $varsesion == ''|| !($varsesion == 'admin')){
 		echo "<body class='fondo'>";
-		echo "<h2 class='form-titulo'>Debe iniciar sesion para ingresar</h2>";
+		echo "<h2 class='form-titulo'>Debe iniciar como administrador para ingresar</h2><br><br>";
 			echo "<script>
 						setTimeout(function() {
 								location.href = 'index.php';
@@ -54,7 +54,7 @@
 		<br><br><br>
 	<form action="validar_ir.php" method="post" class="form-register" >
 
-		<h2 class="form-titulo">Tu predicción</h2>
+		<h2 class="form-titulo">Ingreso de resultado final</h2>
 	 	<div class="contenedor-inputs">
 
 	 		<?php
@@ -67,7 +67,7 @@
 			$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
     			or die('Could not connect: ' . pg_last_error());
 
-			$query2 = "SELECT * FROM partidos WHERE '$fase'=fase AND '$id'=id";
+			$query2 = "SELECT * FROM partidos WHERE '$fase'=fase AND '$id'=id1";
 
 			$resultado2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
 

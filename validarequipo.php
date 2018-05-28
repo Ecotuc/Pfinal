@@ -4,8 +4,14 @@
 
 	$varsesion = $_SESSION['usuario'];
 
-	if($varsesion == null || $varsesion == ''){
-		echo 'Debe iniciar sesion para ingresar';
+	if($varsesion == null || $varsesion == ''|| !($varsesion == 'admin')){
+		echo "<body class='fondo'>";
+		echo "<h2 class='form-titulo'>Debe iniciar como administrador para ingresar</h2><br><br>";
+			echo "<script>
+						setTimeout(function() {
+								location.href = 'index.php';
+						}, 2000);
+					</script>";
 	}
 ?>
 

@@ -6,9 +6,9 @@
 
 	$varsesion = $_SESSION['usuario'];
 
-	if($varsesion == null || $varsesion == ''){
+	if($varsesion == null || $varsesion == ''|| !($varsesion == 'admin')){
 		echo "<body class='fondo'>";
-		echo "<h2 class='form-titulo'>Debe iniciar sesion para ingresar</h2>";
+		echo "<h2 class='form-titulo'>Debe iniciar como administrador para ingresar</h2><br><br>";
 			echo "<script>
 						setTimeout(function() {
 								location.href = 'index.php';
@@ -36,7 +36,6 @@
 			$fase=$_POST["fase"];
 			$e1=$_POST["e1"];
 			$e2=$_POST["e2"];
-
 			$f1=0;
 			$f2=0;
 
@@ -46,10 +45,10 @@
 					$dbconn = pg_connect("host=localhost dbname=ProyectoCC user=postgres password=1998")
 	    			or die('Could not connect: ' . pg_last_error());
 
-					$query2 = "UPDATE partidos SET gole1='$gole1', gole2='$gole2', cf=1 WHERE id='$id' AND fase='$fase'";
+					$query2 = "UPDATE partidos SET gole1='$gole1', gole2='$gole2', cf=1 WHERE id1='$id' AND fase='$fase'";
 					$result2 = pg_query($query2) or die('Query failed: ' . pg_last_error());
 
-					// ACTUALIZACIÓN TABLA EQUIPOS
+					// ACTUALIZACIÓN PUNTOS DE EQUIPOS
 
 					$query3 = "UPDATE equipos SET golesc=(golesc+'$gole2'), golesf=(golesf+'$gole1') WHERE nombre='$e1'";
 					$result3 = pg_query($query3) or die('Query failed: ' . pg_last_error());
@@ -70,32 +69,35 @@
 						$result6 = pg_query($query6) or die('Query failed: ' . pg_last_error());
 					}
 
-					//ACTUALIZAR TABLA DE JUGADORES
-
+					//EDITA PUNTOS DE USUARIOS
 					$query1 = "SELECT * FROM quiniela WHERE idpartido='$id'";
-					$result1 = pg_query($query2) or die('Query failed: ' . pg_last_error());
+					$result1 = pg_query($query1) or die('Query failed: ' . pg_last_error());
 
 					while ($row2 = pg_fetch_row($result1)) {
 						$ge1 = $row2[2];
 						$ge2 = $row2[3];
-						$usuario = $row[0];
-
-						$query7 = "SELECT * FROM users WHERE usuario='$usuario'";
-						$result7 = pg_query($query2) or die('Query failed: ' . pg_last_error());
-
-						while ($row3 = pg_fetch_row($result7)) {
-							$puntos=$row3[3];
+						$usuario = $row2[0];
 							if(($gole1==$ge1)&&($gole2==$ge2)){
-								$puntos=($puntos+3);
+
+								$query = "UPDATE users SET puntos=(puntos+6) WHERE users.usuario='$usuario'";
+								$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+
 							}
 							else if(($gole1>$gole2)&&($ge1>$ge2)){
-								$puntos=($puntos+1);
+								$query = "UPDATE users SET puntos=(puntos+3) WHERE users.usuario='$usuario'";
+								$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 							}
 							else if(($gole2>$gole1)&&($ge2>$ge1)){
-								$puntos=($puntos+1);
+								$query = "UPDATE users SET puntos=(puntos+3) WHERE users.usuario='$usuario'";
+								$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+							} else if(($gole2==$gole1)&&($ge2==$ge1)){
+								$query = "UPDATE users SET puntos=(puntos+3) WHERE users.usuario='$usuario'";
+								$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 							}
 						}
-					}
+
+
+
 
 					$query8 = "SELECT * FROM partidos WHERE cf=1";
 					$result8 = pg_query($query8) or die('Query failed: ' . pg_last_error());
@@ -174,6 +176,11 @@
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
 						$query9 = "INSERT INTO partidos(equipo1, equipo2, fecha, hora, gole1, gole2, fase, cf) VALUES ('$primeroH', '$segundoG', '03/07/2018', '12:00:00', 0, 0, 'Octavos', 0)";
 						$result9 = pg_query($query9) or die('Query failed: ' . pg_last_error());
+
+
+
+
+
 
 					} else if($row8==56){
 
@@ -327,18 +334,28 @@
 					} else if($row8==64){
 						echo "es64";
 					}
-					if($result2){
-  					pg_free_result($result2);
-  					pg_close($dbconn);
-  					echo "<body class='fondo'>";
-  					echo "<h2 class='form-titulo'>El resultado fue ingresado exitosamente</h2>";
-      				echo "<script>
-              		setTimeout(function() {
-                      location.href = 'bienvenido.php';
-              		}, 3000);
-          			</script>";
-  				}
-				}
+
+
+					pg_free_result($result);
+					pg_free_result($result1);
+					pg_free_result($result2);
+					pg_free_result($result3);
+					pg_free_result($result4);
+					pg_free_result($result5);
+					pg_free_result($result6);
+					pg_free_result($result7);
+					pg_free_result($result8);
+					pg_free_result($result9);
+					pg_free_result($resultado);
+	  			pg_close($dbconn);
+	  			echo "<body class='fondo'>";
+	  			echo "<h2 class='form-titulo'>El resultado fue ingresado exitosamente</h2>";
+	      	echo "<script>
+	             		setTimeout(function() {
+	                location.href = 'bienvenido.php';
+	             		}, 3000);
+	        </script>";
+ 						}
 	?>
 </body>
 </html>

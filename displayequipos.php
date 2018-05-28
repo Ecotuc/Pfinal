@@ -55,6 +55,9 @@
 				<th>
 					<center>Grupo A</center><br>
 				</th>
+				<th>
+					<a href="all.php">Ingresar script</a>
+				</th>
 			</tr>
 			<tr>
 				<th>

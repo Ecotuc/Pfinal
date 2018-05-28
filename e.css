@@ -88,10 +88,16 @@ img {
 	border-radius: 8px;
 }
 
+table {
+	table-layout: auto;
+	width:180px;
+}
+
 th {
 	border-bottom: 1px solid #ddd;
 	height: 50px;
   vertical-align: middle;
+  text-align: center;
 }
 
 .form-titulo{
