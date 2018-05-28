@@ -327,6 +327,17 @@
 					} else if($row8==64){
 						echo "es64";
 					}
+					if($result2){
+  					pg_free_result($result2);
+  					pg_close($dbconn);
+  					echo "<body class='fondo'>";
+  					echo "<h2 class='form-titulo'>El resultado fue ingresado exitosamente</h2>";
+      				echo "<script>
+              		setTimeout(function() {
+                      location.href = 'bienvenido.php';
+              		}, 3000);
+          			</script>";
+  				}
 				}
 	?>
 </body>

@@ -27,13 +27,15 @@
 			<?php
 				if(!($varsesion =='admin')){
 						echo "<li><a href=\"calendario.php\">Mi Quiniela</a></li>";
+						echo "<li><a href=\"micuenta.php\">Mi Cuenta</a></li>";
 				}
 			 ?>
 
 			<li><a href="displayequipos.php">Equipos</a></li>
 			<?php
 				if($varsesion =='admin'){
-						echo "<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
+						echo "<li><a href=\"displayusuarios.php\">Usuarios</a></li>
+						<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
 						<li><a href=\"resultados.php\">Ingresar Resultados</a></li>
 						<li><a href=\"equipo.php\">Ingresar Equipos</a></li>";
 				}
@@ -41,6 +43,7 @@
 			<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
 
 		</ul>
+
 	</div>
 	</div>
 <br><br><br>
@@ -67,13 +70,6 @@
 
 				$query1 = "SELECT * FROM partidos ORDER BY fecha";
 				$resultado = pg_query($query1) or die('Query failed: ' . pg_last_error());
-
-
-				$dia = date(l);
-				$mes = date(F);
-				$año = date(Y);
-				$hora = date(h);
-				$minutos = date(i);
 
 				while ($row = pg_fetch_row($resultado)) {
 					$id=$row[6];
@@ -113,22 +109,25 @@
 								<br>
 								&nbsp;&nbsp";
 								date_default_timezone_set('Etc/GMT+6');
-			 				 $h2 = date("Y-m-d");
-			 				 $hr2=date("H:i:s");
+			 				 $hoy2 = date("Y-m-d");
+			 				 $hora2=date("H:i:s");
+							 $limf = $row[2];
+							 $limh = $row[3];
 
-								if(strtotime($row[2]) >= strtotime($h2) ) {
-									echo "Esta fecha $row[2] es más reciente que esta $h2<br><br>";
-									if (time($row[3]) < time($hr2)){
-										
+								if(strtotime($hoy2) <= strtotime($limf)) {
+									echo "Esta fecha $hoy2 es más antigua o igual que esta $limf<br><br>";
+									if (time($hora2) >= time($limh)){
+										echo "Esto $hora2 es más tarde que esto $limh <br><br>";
 									// echo "<a href='quiniela.php?equipo1=$equipo1&equipo2=$equipo2&id=$id&usuario=$varsesion'>Modificar predicción</a>
 									// <br><br>
 									// </th>";
 									}else {
+										echo "Esto $hora2 es más temprano que esto $limh<br><br>";
 									// echo "<br>Mal hora<br>
 									// </th>";
 								}
 							} else {
-									echo "<br>Esta fecha $row[2] es más antigua que esta $h2<br>
+									echo "¡El partido ya inicio!<br>
 									</th>";
 								}
 

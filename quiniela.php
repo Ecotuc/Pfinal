@@ -1,5 +1,5 @@
 <!-- TIENE ERRORES -->
- 
+
 <?php
 	session_start();
 	error_reporting(0);
@@ -27,29 +27,32 @@
 </head>
 <body class="fondo">
 	<div class="xd">
-		<div id="header">
-			<ul class="nav">
-				<li><a href="bienvenido.php">Inicio</a></li>
-				<li><a href="calendariopartidos.php">Calendario</a></li>
-				<?php
-					if(!($varsesion =='admin')){
-							echo "<li><a href=\"calendario.php\">Mi Quiniela</a></li>";
-					}
-				 ?>
+    <div id="header">
+      <ul class="nav">
+        <li><a href="bienvenido.php">Inicio</a></li>
+        <li><a href="calendariopartidos.php">Calendario</a></li>
+        <?php
+          if(!($varsesion =='admin')){
+              echo "<li><a href=\"calendario.php\">Mi Quiniela</a></li>";
+              echo "<li><a href=\"micuenta.php\">Mi Cuenta</a></li>";
+          }
+         ?>
 
-				<li><a href="displayequipos.php">Equipos</a></li>
-				<?php
-					if($varsesion =='admin'){
-							echo "<li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
-							<li><a href=\"resultados.php\">Ingresar Resultados</a></li>
-							<li><a href=\"equipo.php\">Ingresar Equipos</a></li>";
-					}
-				 ?>
-				<li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
+        <li><a href="displayequipos.php">Equipos</a></li>
+        <?php
+          if($varsesion =='admin'){
+              echo "<li><a href=\"displayusuarios.php\">Usuarios</a></li>
+              <li><a href=\"partidoequipo.php\">Ingresar Partido</a></li>
+              <li><a href=\"resultados.php\">Ingresar Resultados</a></li>
+              <li><a href=\"equipo.php\">Ingresar Equipos</a></li>";
+          }
+         ?>
+        <li><a href="cerrarsesion.php">Cerrar Sesión</a></li>
 
-			</ul>
-		</div>
-		</div>
+      </ul>
+
+    </div>
+	</div>
 		<br><br><br>
 	<form action="validar_quiniela.php" method="post" class="form-register" >
 
